@@ -1,4 +1,4 @@
-session handle
+session generate
 ==============
 
 generate unique session id
