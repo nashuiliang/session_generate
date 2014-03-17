@@ -3,10 +3,10 @@ session handle
 
 generate unique session id
 --------------------------
-> 1. Perl Socket, threads
+1. Perl Socket, threads
         use IO::Socket; use threads;
-> 2. 调用socket 生成唯一的session id
-> 3. 调用`uuidgen` 简单的成生uuid, 可以参看GO session 模块中关于session id的生成
+2. 调用socket 生成唯一的session id
+3. 调用`uuidgen` 简单的成生uuid, 可以参看GO session 模块中关于session id的生成
 
 save session message
 --------------------
