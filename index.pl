@@ -4,13 +4,12 @@ use warnings qw(all);
 use strict qw(refs vars subs);
 use Data::Dumper qw(Dumper);
 use IO::Socket;
-use threads;
 use autodie;
 use Redis;
 use HTTP::Server::Simple::CGI;
 use base qw(HTTP::Server::Simple::CGI);
-use CGI;
 use JSON qw(encode_json);
+use Storable qw(thaw);
 
 sub session_id{
   my $socket = IO::Socket::INET->new(
@@ -23,7 +22,8 @@ sub session_id{
   close($socket);
 
   $res =~ s/\s+$//g;
-  return $res;
+  my $info = thaw($res);
+  return $info->{uuid};
 }
 
 sub init_session{
